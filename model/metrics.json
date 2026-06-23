@@ -1,0 +1,11 @@
+{
+  "roc_auc": 0.9744,
+  "avg_precision": 0.8793,
+  "threshold": 0.4637,
+  "f1_fraud": 0.8407,
+  "best_iteration": 1201,
+  "n_features": 170,
+  "train_rows": 472432,
+  "val_rows": 118108,
+  "fraud_rate": 0.035
+}
