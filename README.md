@@ -16,11 +16,11 @@ A machine learning system for detecting fraudulent online transactions, built on
 
 ![fraud Demo](assets/ui_1.png)
 ![fraud Demo](assets/ui_2.png)
-![fraud Demo](assets/ui_3.png)
 ![fraud Demo](assets/ui_4.png)
 ![fraud Demo](assets/ui_5.png)
 ![fraud Demo](assets/ui_6.png)
 ![fraud Demo](assets/ui_7.png)
+![fraud Demo](assets/ui_3.png)
 ![fraud Demo](assets/ui_8.png)
 ![fraud Demo](assets/ui_9.png)
 
