@@ -123,8 +123,24 @@ The decision threshold is set to the value that **maximises F1** on the validati
 
 ## Evaluation Charts
 
-| ROC Curve | Precision-Recall Curve |
-|---|---|
+All charts are computed on the 20% hold-out validation set (118,108 transactions).
+
+![ROC Curve](model/charts/roc_curve.png)
+*Figure 1. ROC curve. The model reaches an ROC-AUC of 0.9744, so it ranks fraudulent transactions above legitimate ones far more often than chance.*
+
+![Precision-Recall Curve](model/charts/pr_curve.png)
+*Figure 2. Precision-recall curve. Average precision is 0.8793, which is the more informative metric here because only 3.5% of transactions are fraud.*
+
+![Confusion Matrix](model/charts/confusion_matrix.png)
+*Figure 3. Confusion matrix at the F1-optimal threshold of 0.4637, showing how many legitimate and fraudulent transactions are classified correctly and incorrectly.*
+
+![Score Distribution](model/charts/score_distribution.png)
+*Figure 4. Distribution of predicted fraud probabilities for legitimate and fraudulent transactions. The less the two overlap, the better the separation.*
+
+![Feature Importance](model/charts/feature_importance.png)
+*Figure 5. Top features ranked by importance in the LightGBM model.*
+
+---|---|
 | ![ROC](model/charts/annotated/roc_curve.png) | ![PR](model/charts/annotated/pr_curve.png) |
 
 | Confusion Matrix | Score Distribution |

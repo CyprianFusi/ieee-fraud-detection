@@ -404,31 +404,37 @@ elif page == "📊 Model Evaluation":
     st.markdown("---")
 
     chart_files = {
-        "ROC Curve":              CHART_DIR / "roc_curve.png",
-        "Precision-Recall Curve": CHART_DIR / "pr_curve.png",
-        "Confusion Matrix":       CHART_DIR / "confusion_matrix.png",
-        "Score Distribution":     CHART_DIR / "score_distribution.png",
-        "Feature Importance":     CHART_DIR / "feature_importance.png",
+        "ROC Curve": (
+            CHART_DIR / "roc_curve.png",
+            f"ROC-AUC of {metrics['roc_auc']:.4f}: the model ranks fraudulent transactions above legitimate ones far more often than chance.",
+        ),
+        "Precision-Recall Curve": (
+            CHART_DIR / "pr_curve.png",
+            f"Average precision of {metrics['avg_precision']:.4f}. This is the more informative metric here because only {metrics['fraud_rate']:.1%} of transactions are fraud.",
+        ),
+        "Confusion Matrix": (
+            CHART_DIR / "confusion_matrix.png",
+            f"Correct and incorrect classifications at the F1-optimal threshold of {metrics['threshold']:.4f}.",
+        ),
+        "Score Distribution": (
+            CHART_DIR / "score_distribution.png",
+            "Predicted fraud probabilities for legitimate and fraudulent transactions. Less overlap means better separation.",
+        ),
+        "Feature Importance": (
+            CHART_DIR / "feature_importance.png",
+            "Top features ranked by importance in the LightGBM model.",
+        ),
     }
 
     # Display charts in a 2-column grid
     items = list(chart_files.items())
     for i in range(0, len(items), 2):
-        c1, c2 = st.columns(2)
-        name1, path1 = items[i]
-        c1.subheader(name1)
-        if path1.exists():
-            c1.image(str(path1), width="stretch")
-        else:
-            c1.warning("Chart not found – run train_model.py first.")
-
-        if i + 1 < len(items):
-            name2, path2 = items[i + 1]
-            c2.subheader(name2)
-            if path2.exists():
-                c2.image(str(path2), width="stretch")
+        for col, (name, (path, caption)) in zip(st.columns(2), items[i:i + 2]):
+            col.subheader(name)
+            if path.exists():
+                col.image(str(path), width="stretch", caption=caption)
             else:
-                c2.warning("Chart not found – run train_model.py first.")
+                col.warning("Chart not found – run train_model.py first.")
 
     st.markdown("---")
     st.subheader("Training Progress (AUC vs. Boosting Round)")
