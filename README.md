@@ -140,15 +140,6 @@ All charts are computed on the 20% hold-out validation set (118,108 transactions
 ![Feature Importance](model/charts/feature_importance.png)
 *Figure 5. Top features ranked by importance in the LightGBM model.*
 
----|---|
-| ![ROC](model/charts/annotated/roc_curve.png) | ![PR](model/charts/annotated/pr_curve.png) |
-
-| Confusion Matrix | Score Distribution |
-|---|---|
-| ![CM](model/charts/annotated/confusion_matrix.png) | ![Scores](model/charts/annotated/score_distribution.png) |
-
-![Feature Importance](model/charts/annotated/feature_importance.png)
-
 ---
 
 ## Getting Started
